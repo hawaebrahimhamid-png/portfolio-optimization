@@ -156,3 +156,161 @@ The next phase of the project will include:
 - Portfolio Optimization
 - Efficient Frontier
 - Portfolio Backtesting
+
+# Task 2: Time Series Forecasting Models
+
+## Objective
+
+The objective of this task was to develop, train, and evaluate multiple time series forecasting models to predict Tesla stock closing prices. The models implemented include classical statistical models (ARIMA and Auto-ARIMA) and a deep learning approach (LSTM).
+
+The goal was to compare model performance based on accuracy, complexity, and interpretability.
+
+---
+
+# 1. Data Preparation
+
+The Tesla stock dataset was prepared for time series forecasting.
+
+- The data was split chronologically to preserve the time order.
+- Training data was used for model fitting.
+- Testing data was used for evaluating future price predictions.
+- Random shuffling was avoided because it can introduce future information into the training process.
+
+The target variable used for forecasting was:
+
+- **Close Price**
+
+---
+
+# 2. ARIMA Model
+
+A classical ARIMA model was implemented to forecast Tesla stock prices.
+
+## Model Selection
+
+The ARIMA parameters were selected using time series analysis techniques and model evaluation.
+
+The selected model:
+
+```
+ARIMA(1,1,1)
+```
+
+Parameters:
+
+- p = 1 (autoregressive term)
+- d = 1 (differencing)
+- q = 1 (moving average term)
+
+The model was trained using the training dataset and used to generate forecasts for the test period.
+
+---
+
+# 3. Auto-ARIMA Optimization
+
+Auto-ARIMA was used to automatically search for the best ARIMA parameters by minimizing the Akaike Information Criterion (AIC).
+
+The selected model:
+
+```
+ARIMA(0,1,0)
+```
+
+Auto-ARIMA helped optimize the model selection process without manually testing different parameter combinations.
+
+---
+
+# 4. LSTM Model
+
+A Long Short-Term Memory (LSTM) neural network was developed to capture nonlinear patterns in Tesla stock prices.
+
+## Data Preparation
+
+The closing prices were scaled using:
+
+```
+MinMaxScaler
+```
+
+A sequence length of 60 days was used:
+
+- Previous 60 days → Predict next day
+
+The input data was reshaped into:
+
+```
+(samples, time steps, features)
+
+(8604, 60, 1)
+```
+
+---
+
+## LSTM Architecture
+
+The model architecture:
+
+- LSTM layer with 50 units
+- Dropout layer (0.2)
+- LSTM layer with 50 units
+- Dropout layer (0.2)
+- Dense output layer
+
+Training configuration:
+
+- Optimizer: Adam
+- Loss function: Mean Squared Error
+- Epochs: 20
+- Batch size: 32
+
+---
+
+# 5. Model Evaluation
+
+The models were evaluated using:
+
+- MAE (Mean Absolute Error)
+- RMSE (Root Mean Squared Error)
+- MAPE (Mean Absolute Percentage Error)
+
+Lower values indicate better forecasting performance.
+
+## Results Comparison
+
+| Model | MAE | RMSE | MAPE |
+|---|---:|---:|---:|
+| ARIMA | 54.46 | 70.58 | 17.25% |
+| Auto-ARIMA | 54.44 | 70.54 | 17.24% |
+| LSTM | 256.28 | 259.66 | 72.23% |
+
+---
+
+# 6. Model Selection Discussion
+
+Based on the evaluation results, **Auto-ARIMA achieved the best performance** with the lowest MAE, RMSE, and MAPE values.
+
+The ARIMA-based models performed better than the LSTM model because Tesla stock prices in this dataset were better captured by statistical time-series patterns.
+
+The LSTM model produced higher errors, possibly because:
+
+- Only the closing price was used as input.
+- Stock prices contain high levels of noise and uncertainty.
+- More hyperparameter tuning and additional features may be required.
+
+Although LSTM models are powerful for learning complex patterns, the simpler Auto-ARIMA model provided better forecasting accuracy in this experiment.
+
+---
+
+# Conclusion
+
+Three forecasting approaches were developed and compared:
+
+- ARIMA
+- Auto-ARIMA
+- LSTM
+
+The final selected model was:
+
+**Auto-ARIMA**
+
+because it achieved the lowest forecasting errors and provided the most accurate predictions for Tesla stock prices in the test period.
