@@ -314,3 +314,12 @@ The final selected model was:
 **Auto-ARIMA**
 
 because it achieved the lowest forecasting errors and provided the most accurate predictions for Tesla stock prices in the test period.
+## Project Structure
+
+The project follows a modular structure:
+
+- src/: reusable Python modules
+- notebooks/: analysis notebooks
+- tests/: automated tests
+- data/: datasets
+- .github/workflows/: CI pipeline
