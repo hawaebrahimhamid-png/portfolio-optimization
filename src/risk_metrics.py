@@ -1,3 +1,6 @@
+import numpy as np
+
+
 def calculate_var(returns, confidence=0.95):
 
     return returns.quantile(1-confidence)
