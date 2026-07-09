@@ -383,3 +383,27 @@ Construct an optimal investment portfolio using Modern Portfolio Theory (MPT) by
 ### Recommendation
 
 The Maximum Sharpe Ratio portfolio is recommended because it provides the highest risk-adjusted return while maintaining a diversified allocation between SPY and TSLA.
+# Task 5: Portfolio Strategy Backtesting
+
+## Objective
+Validate the optimized portfolio strategy by testing its historical performance against a benchmark portfolio.
+
+## Work Completed
+
+- Created a backtesting period using 2025 data
+- Applied Task 4 optimized portfolio weights
+- Created a 60/40 SPY-BND benchmark portfolio
+- Compared cumulative returns
+- Calculated:
+  - Total Return
+  - Annualized Return
+  - Sharpe Ratio
+  - Maximum Drawdown
+
+## Results
+
+The optimized strategy was compared with the benchmark to evaluate risk-adjusted performance and portfolio effectiveness.
+
+## Limitations
+
+The backtest is based on historical data and does not include transaction costs, market impact, or future market uncertainty.
