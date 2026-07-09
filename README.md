@@ -323,3 +323,19 @@ The project follows a modular structure:
 - tests/: automated tests
 - data/: datasets
 - .github/workflows/: CI pipeline
+
+## Task 3: Forecast Future Market Trends
+
+### Objective
+
+Forecast Tesla stock prices for the next six months using the best-performing forecasting model.
+
+### Completed Work
+
+- Selected Auto-ARIMA as the best forecasting model.
+- Generated a six-month Tesla stock price forecast.
+- Visualized historical prices, forecasts, and 95% confidence intervals.
+- Analyzed forecast trends and uncertainty.
+- Identified investment opportunities and risks.
+- Saved the forecast for future portfolio optimization.
+
