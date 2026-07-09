@@ -339,3 +339,47 @@ Forecast Tesla stock prices for the next six months using the best-performing fo
 - Identified investment opportunities and risks.
 - Saved the forecast for future portfolio optimization.
 
+## Task 4: Portfolio Optimization
+
+### Objective
+
+Construct an optimal investment portfolio using Modern Portfolio Theory (MPT) by combining forecasted Tesla returns with historical returns of BND and SPY.
+
+### Methodology
+
+- Calculated annual expected returns.
+- Used the forecasted return for TSLA.
+- Computed the annualized covariance matrix.
+- Visualized the covariance matrix using a heatmap.
+- Generated the Efficient Frontier with 5,000 simulated portfolios.
+- Identified the Maximum Sharpe Ratio and Minimum Volatility portfolios.
+
+### Results
+
+#### Maximum Sharpe Ratio Portfolio
+
+| Asset | Weight |
+|-------|--------|
+| BND | 0.00% |
+| SPY | 70.78% |
+| TSLA | 29.22% |
+
+- Expected Annual Return: **22.3%**
+- Annual Volatility: **25.3%**
+- Sharpe Ratio: **0.88**
+
+#### Minimum Volatility Portfolio
+
+| Asset | Weight |
+|-------|--------|
+| BND | 94.29% |
+| SPY | 5.71% |
+| TSLA | 0.00% |
+
+- Expected Annual Return: **-0.1%**
+- Annual Volatility: **5.3%**
+- Sharpe Ratio: **-0.01**
+
+### Recommendation
+
+The Maximum Sharpe Ratio portfolio is recommended because it provides the highest risk-adjusted return while maintaining a diversified allocation between SPY and TSLA.
